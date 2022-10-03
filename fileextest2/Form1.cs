@@ -94,8 +94,23 @@ namespace fileextest2
         {
             if(e.Button == MouseButtons.Right)
             {
-                
+            
             }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            currentFolder.Remove(currentlySelectedItem);
+            listView1.Clear();
+            loadFilesAndDirectories();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Folder c = new Folder(filePathTextBox.Text);
+            currentFolder.Add(c);
+            listView1.Clear();
+            loadFilesAndDirectories();
         }
     }
 }
