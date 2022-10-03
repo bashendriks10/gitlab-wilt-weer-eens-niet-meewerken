@@ -5,10 +5,12 @@ namespace fileextest2.composite
     public class Folder : Component
     {
         List<Component> children = new List<Component>();
+        public override int IconCode { get; protected set; }
 
         public Folder(string name)
             : base(name)
         {
+            IconCode = 0;
         }
         public override void Add(Component component)
         {
@@ -19,7 +21,7 @@ namespace fileextest2.composite
             children.Remove(component);
         }
 
-        public override bool isFolder()
+        public override bool IsFolder()
         {
             return true;
         }
