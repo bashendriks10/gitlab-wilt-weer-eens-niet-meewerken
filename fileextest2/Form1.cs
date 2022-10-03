@@ -1,4 +1,5 @@
 ﻿using fileextest2.composite;
+using fileextest2.FormCompontents;
 using System;
 using System.Windows.Forms;
 using Component = fileextest2.composite.Component;
@@ -11,28 +12,16 @@ namespace fileextest2
         private Folder currentFolder;
         private Component currentlySelectedItem;
         private Folder root = new Folder("root");
-        private ContextMenuStrip Menu;
         public Form1()
         {
             InitializeComponent();
-            Menu = new ContextMenuStrip();
-            ToolStripMenuItem AddFolderButton = new ToolStripMenuItem("AddFolder");
-            ToolStripMenuItem AddTextButton = new ToolStripMenuItem("AddText");
-            ToolStripMenuItem AddExeButton = new ToolStripMenuItem("AddExe");
-            AddFolderButton.Click += addFile;
-            AddTextButton.Click += addFile;
-            AddExeButton.Click += addFile;
-            Menu.Items.Add(AddFolderButton);
-            Menu.Items.Add(AddTextButton);
-            Menu.Items.Add(AddExeButton);
-            listView1.ContextMenuStrip = Menu;
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             fillDB(root);
             loadFilesAndDirectories();
+            listView1.ContextMenuStrip = new GeneralOperationsMenu(addFile);
         }
 
         public void fillDB(Folder root)
@@ -105,11 +94,7 @@ namespace fileextest2
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
-            {
 
-            
-            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
