@@ -2,17 +2,19 @@
 {
     public abstract class Component
     {
-        public string name;
+        public string Name { private set; get; }
+        public abstract int IconCode { protected set; get; }
 
         // Constructor
         public Component(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
         public abstract void Add(Component c);
 
         public abstract void Remove(Component c);
             
-        public abstract bool isFolder();
+        public abstract bool IsFolder();
+
     }
 }

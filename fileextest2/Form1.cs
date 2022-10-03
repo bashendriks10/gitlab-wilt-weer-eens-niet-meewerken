@@ -56,19 +56,7 @@ namespace fileextest2
             for (int i = 0; i < currentFolder.Items().Count; i++)
             {
                 var item = currentFolder.Items()[i];
-                if (item.isFolder())
-                {
-                    listView1.Items.Add(item.name, 0);
-                }
-                else if (item.GetType() == typeof(Text))
-                {
-                    listView1.Items.Add(item.name, 1);
-                }
-                else if (item.GetType() == typeof(Executable))
-                {
-                    listView1.Items.Add(item.name, 2);
-                }
-
+                listView1.Items.Add(item.Name, item.IconCode);
             }
 
 
@@ -86,7 +74,7 @@ namespace fileextest2
 
             currentlySelectedItem = currentFolder.getChild(e.Item.Index);
 
-            fileNameLabel.Text = currentlySelectedItem.name;
+            fileNameLabel.Text = currentlySelectedItem.Name;
             fileTypeLabel.Text = currentlySelectedItem.GetType().Name;
 
         }
@@ -95,7 +83,7 @@ namespace fileextest2
         {
             _ = currentFolder ?? throw new ArgumentNullException(nameof(currentFolder));
             previousFolder = currentFolder;
-            if (currentlySelectedItem.isFolder())
+            if (currentlySelectedItem.IsFolder())
             {
                 currentFolder = (Folder)currentlySelectedItem;
                 listView1.Clear();

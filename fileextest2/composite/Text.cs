@@ -4,10 +4,11 @@ namespace fileextest2.composite
 {
     public class Text : Component
     {
-
+        public override int IconCode { get; protected set; }
         public Text(string name)
             : base(name)
         {
+            IconCode = 1;
         }
         public override void Add(Component c)
         {
@@ -18,7 +19,7 @@ namespace fileextest2.composite
 
             Console.WriteLine("Cannot remove from a leaf");
         }
-        public override bool isFolder()
+        public override bool IsFolder()
         {
             return false;
         }
