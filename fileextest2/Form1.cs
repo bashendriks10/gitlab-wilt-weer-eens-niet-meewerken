@@ -11,9 +11,22 @@ namespace fileextest2
         private Folder currentFolder;
         private Component currentlySelectedItem;
         private Folder root = new Folder("root");
+        private ContextMenuStrip Menu;
         public Form1()
         {
             InitializeComponent();
+            Menu = new ContextMenuStrip();
+            ToolStripMenuItem AddFolderButton = new ToolStripMenuItem("AddFolder");
+            ToolStripMenuItem AddTextButton = new ToolStripMenuItem("AddText");
+            ToolStripMenuItem AddExeButton = new ToolStripMenuItem("AddExe");
+            AddFolderButton.Click += addFile;
+            AddTextButton.Click += addFile;
+            AddExeButton.Click += addFile;
+            Menu.Items.Add(AddFolderButton);
+            Menu.Items.Add(AddTextButton);
+            Menu.Items.Add(AddExeButton);
+            listView1.ContextMenuStrip = Menu;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,6 +107,7 @@ namespace fileextest2
         {
             if(e.Button == MouseButtons.Right)
             {
+
             
             }
         }
@@ -107,8 +121,30 @@ namespace fileextest2
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Folder c = new Folder(filePathTextBox.Text);
-            currentFolder.Add(c);
+            currentFolder.Add(new Folder(filePathTextBox.Text));
+            listView1.Clear();
+            loadFilesAndDirectories();
+        }
+
+        private void addFile(object sender, EventArgs e)
+        {
+            string name = filePathTextBox.Text;
+            if(filePathTextBox.Text == "") name = "noname";
+            string s = sender.ToString();
+            if (s == "AddFolder")
+            {
+                currentFolder.Add(new Folder(name));
+
+            }
+            else if (s == "AddText")
+            {
+                currentFolder.Add(new Text(name));
+            }
+            else if (s == "AddExe")
+            {
+                currentFolder.Add(new Executable(name));
+            }
+
             listView1.Clear();
             loadFilesAndDirectories();
         }
