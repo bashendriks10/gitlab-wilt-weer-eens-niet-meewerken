@@ -18,16 +18,16 @@ namespace fileextest2.composite
         {
             children.Remove(component);
         }
-        public override string getName()
-        {
-            return name;
-        }
 
         public override bool isFolder()
         {
             return true;
         }
 
+        public Component getChild(int i)
+        {
+            return children[i];
+        }
         public List<Component> Items()
         {
 

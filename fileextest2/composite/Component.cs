@@ -2,7 +2,7 @@
 {
     public abstract class Component
     {
-        protected string name;
+        public string name;
 
         // Constructor
         public Component(string name)
@@ -12,9 +12,7 @@
         public abstract void Add(Component c);
 
         public abstract void Remove(Component c);
-
-        public abstract string getName();
-
+            
         public abstract bool isFolder();
     }
 }

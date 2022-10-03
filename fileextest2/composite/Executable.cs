@@ -23,9 +23,5 @@ namespace fileextest2.composite
         {
             return false;
         }
-        public override string getName()
-        {
-            return name;
-        }
     }
 }

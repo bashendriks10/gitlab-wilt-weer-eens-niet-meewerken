@@ -58,15 +58,15 @@ namespace fileextest2
                 var item = currentFolder.Items()[i];
                 if (item.isFolder())
                 {
-                    listView1.Items.Add(item.getName(), 0);
+                    listView1.Items.Add(item.name, 0);
                 }
                 else if (item.GetType() == typeof(Text))
                 {
-                    listView1.Items.Add(item.getName(), 1);
+                    listView1.Items.Add(item.name, 1);
                 }
                 else if (item.GetType() == typeof(Executable))
                 {
-                    listView1.Items.Add(item.getName(), 2);
+                    listView1.Items.Add(item.name, 2);
                 }
 
             }
@@ -84,24 +84,9 @@ namespace fileextest2
         {
             _ = currentlySelectedItem ?? throw new ArgumentNullException(nameof(currentlySelectedItem));
 
-            if (currentFolder.Items()[e.Item.Index].isFolder())
-            {
-                currentlySelectedItem = (Folder)currentFolder.Items()[e.Item.Index];
+            currentlySelectedItem = currentFolder.getChild(e.Item.Index);
 
-
-            }
-            else if (currentFolder.Items()[e.Item.Index].GetType() == typeof(composite.Text))
-            {
-                currentlySelectedItem = (composite.Text)currentFolder.Items()[e.Item.Index];
-
-            }
-            else if (currentFolder.Items()[e.Item.Index].GetType() == typeof(composite.Executable))
-            {
-                currentlySelectedItem = (composite.Executable)currentFolder.Items()[e.Item.Index];
-
-            }
-
-            fileNameLabel.Text = currentlySelectedItem.getName();
+            fileNameLabel.Text = currentlySelectedItem.name;
             fileTypeLabel.Text = currentlySelectedItem.GetType().Name;
 
         }
