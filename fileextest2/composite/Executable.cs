@@ -26,5 +26,10 @@ namespace fileextest2.composite
         {
             return false;
         }
+
+        public override void Execute()
+        {
+            
+        }
     }
 }

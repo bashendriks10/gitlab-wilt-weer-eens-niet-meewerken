@@ -14,6 +14,7 @@ namespace fileextest2.composite
         }
         public override void Add(Component component)
         {
+            component.Parent = this;
             children.Add(component);
         }
         public override void Remove(Component component)
@@ -32,9 +33,11 @@ namespace fileextest2.composite
         }
         public List<Component> Items()
         {
-
             return children;
+        }
 
+        public override void Execute()
+        {
         }
     }
 }

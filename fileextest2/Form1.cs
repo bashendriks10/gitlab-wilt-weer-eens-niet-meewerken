@@ -9,7 +9,6 @@ namespace fileextest2
     {
 
         private Folder currentFolder;
-        private Folder previousFolder;
         private Component currentlySelectedItem;
         private Folder root = new Folder("root");
         public Form1()
@@ -37,19 +36,16 @@ namespace fileextest2
             Folder comp2 = new Folder("Folder_2");
             comp.Add(comp2);
             comp2.Add(new composite.Text("Text_2"));
-            comp2.Add(root);
+            //comp2.Add(root);
             comp2.Add(new composite.Executable("Exe_10"));
             comp2.Add(new composite.Text("Text_6"));
         }
 
         public void loadFilesAndDirectories()
         {
-           
-
             if (currentFolder == null)
             {
                 currentlySelectedItem = root;
-                previousFolder = root;
                 currentFolder = root;
             }
 
@@ -58,9 +54,6 @@ namespace fileextest2
                 var item = currentFolder.Items()[i];
                 listView1.Items.Add(item.Name, item.IconCode);
             }
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -82,21 +75,17 @@ namespace fileextest2
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             _ = currentFolder ?? throw new ArgumentNullException(nameof(currentFolder));
-            previousFolder = currentFolder;
             if (currentlySelectedItem.IsFolder())
             {
                 currentFolder = (Folder)currentlySelectedItem;
                 listView1.Clear();
                 loadFilesAndDirectories();
             }
-
-
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            _ = previousFolder ?? throw new ArgumentNullException(nameof(previousFolder));
-            currentFolder = previousFolder;
+            currentFolder = (Folder)currentFolder.Parent;
             listView1.Clear();
             loadFilesAndDirectories();
         }
