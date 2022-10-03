@@ -44,9 +44,10 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Location = new System.Drawing.Point(9, 10);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.Size = new System.Drawing.Size(56, 19);
             this.backButton.TabIndex = 0;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // goButton
             // 
-            this.goButton.Location = new System.Drawing.Point(999, 12);
+            this.goButton.Location = new System.Drawing.Point(749, 10);
+            this.goButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 23);
+            this.goButton.Size = new System.Drawing.Size(56, 19);
             this.goButton.TabIndex = 1;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
@@ -64,22 +66,25 @@
             // 
             // filePathTextBox
             // 
-            this.filePathTextBox.Location = new System.Drawing.Point(93, 12);
+            this.filePathTextBox.Location = new System.Drawing.Point(70, 10);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.filePathTextBox.Name = "filePathTextBox";
-            this.filePathTextBox.Size = new System.Drawing.Size(900, 22);
+            this.filePathTextBox.Size = new System.Drawing.Size(676, 20);
             this.filePathTextBox.TabIndex = 2;
             // 
             // listView1
             // 
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.iconList;
-            this.listView1.Location = new System.Drawing.Point(12, 41);
+            this.listView1.Location = new System.Drawing.Point(9, 33);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1062, 460);
+            this.listView1.Size = new System.Drawing.Size(798, 374);
             this.listView1.SmallImageList = this.iconList;
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // iconList
@@ -93,44 +98,48 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 519);
+            this.label1.Location = new System.Drawing.Point(9, 422);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "FileName";
             // 
             // fileNameLabel
             // 
             this.fileNameLabel.AutoSize = true;
-            this.fileNameLabel.Location = new System.Drawing.Point(90, 519);
+            this.fileNameLabel.Location = new System.Drawing.Point(68, 422);
+            this.fileNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fileNameLabel.Name = "fileNameLabel";
-            this.fileNameLabel.Size = new System.Drawing.Size(15, 16);
+            this.fileNameLabel.Size = new System.Drawing.Size(13, 13);
             this.fileNameLabel.TabIndex = 5;
             this.fileNameLabel.Text = "--";
             // 
             // fileTypeLabel
             // 
             this.fileTypeLabel.AutoSize = true;
-            this.fileTypeLabel.Location = new System.Drawing.Point(1030, 519);
+            this.fileTypeLabel.Location = new System.Drawing.Point(772, 422);
+            this.fileTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fileTypeLabel.Name = "fileTypeLabel";
-            this.fileTypeLabel.Size = new System.Drawing.Size(15, 16);
+            this.fileTypeLabel.Size = new System.Drawing.Size(13, 13);
             this.fileTypeLabel.TabIndex = 6;
             this.fileTypeLabel.Text = "--";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(949, 519);
+            this.label4.Location = new System.Drawing.Point(712, 422);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "FileType";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 570);
+            this.ClientSize = new System.Drawing.Size(823, 463);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fileTypeLabel);
             this.Controls.Add(this.fileNameLabel);
@@ -139,6 +148,7 @@
             this.Controls.Add(this.filePathTextBox);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.backButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -89,5 +89,13 @@ namespace fileextest2
             listView1.Clear();
             loadFilesAndDirectories();
         }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                
+            }
+        }
     }
 }
